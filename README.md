@@ -10,3 +10,10 @@ Adafruit temperature sensor breakout MCP9808
 
 ##Thingspeak Dashboard
 https://thingspeak.com/channels/201512
+
+##Recommended Video tutorials
+
+These 3 videos by Tony DiCola/Adafruit provide a great background for this project.  See adafruit.com website  
+1. MicroPython Basics: How to Load MicroPython on a Board  
+2. MicroPython Basics: Load Files & Run Code   
+3. MicroPython Hardware: I2C Devices   
