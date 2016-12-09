@@ -9,4 +9,4 @@ Adafruit temperature sensor breakout MCP9808
 ![wp_20161209_003](https://cloud.githubusercontent.com/assets/12716600/21067012/b8ef1d9e-be1d-11e6-89ca-d92cfb1e665a.jpg)
 
 ##Thingspeak Dashboard
-https://thingspeak.com/channels/201512/private_show
+https://thingspeak.com/channels/201512
