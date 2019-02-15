@@ -22,7 +22,6 @@ Example code showing how to use the MQTT protocol with the Thingspeak cloud serv
 parameters are needed 
 
 ## Limitations
-* no exception handling in example code
 * examples support only one field in the channel
 
 ## Tested with Hardware
@@ -50,8 +49,8 @@ See section below **Installing UMQTT Package**
 ```
 $ ampy -pCOMx -d1 put publishThingspeak.py main.py
 ```
-1. Reset the board
-1. Observe that data is being Published to the Thingspeak channel at Thingspeak.com
+4. Reset the board
+1. Observe that data is being Published to the ThingSpeak channel at Thingspeak.com
 
 ## Subscribing to ThingSpeak channels
 
