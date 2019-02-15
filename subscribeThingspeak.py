@@ -31,6 +31,7 @@ import network
 from umqtt.robust import MQTTClient
 import time
 import os
+import sys
 
 def cb(topic, msg):
     print((topic, msg))
