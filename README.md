@@ -34,10 +34,11 @@ parameters are needed
 * Micropython v1.9.4
 * Micropython v1.10
 
-## Recommended Tools
-* Adafruit Ampy
+### Recommended Tools for Windows
+* Adafruit Ampy to copy files to the filesystem
     * install version 1.0.3 or newer which has the -d option (use **-d1** to avoid USB connection issues in Windows)
-* Putty
+* Putty to interact with the REPL  
+    * set Serial speed to 115200 and Flow control to None
 
 ## Publishing data to ThingSpeak channels
 
