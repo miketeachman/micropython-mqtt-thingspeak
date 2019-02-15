@@ -5,6 +5,7 @@ Example code showing how to use the MQTT protocol with the Thingspeak cloud serv
 * Subscribe to data
 * Micropython
 * ESP8266
+* ESP32
 
 ## Thingspeak configuration
 1. Create a Thingspeak account https://thingspeak.com
@@ -17,7 +18,7 @@ Example code showing how to use the MQTT protocol with the Thingspeak cloud serv
     * MQTT API Key (found in Account-> My Profile)
 
 ## Example code configuration
-* The code is commented at various places with **"EDIT"** indicating places where Thingspeak configuration
+* The code is commented at various places with **"ENTER_"** indicating places where Thingspeak configuration
 parameters are needed 
 
 ## Limitations
@@ -26,27 +27,45 @@ parameters are needed
 
 ## Tested with Hardware
 * Adafruit Feather HUZZAH ESP8266
-* Adafruit Feather HUZZAH ESP32 (need to install umqtt package from micropython-lib... see below)
+* Adafruit Feather HUZZAH ESP32
 * WeMos D1 Mini
 
 ## Tested with Micropython Versions
 * Micropython v1.9.3
 * Micropython v1.9.4
+* Micropython v1.10
 
 ## Recommended Tools
 * Adafruit Ampy
-    * install version 1.0.3 which has the -d option (use **-d1** to avoid USB connection issues in Windows)
+    * install version 1.0.3 or newer which has the -d option (use **-d1** to avoid USB connection issues in Windows)
 * Putty
 
-## Making it work
-1. Configure example code with Thingspeak parameters
-1. Use Ampy to put Publish code to main.py on ESP8266
-1. Reset ESP8266
+## Publishing data to ThingSpeak channels
+
+#### Usage
+1. Install the UMQTT Package (if needed)
+See section below **Installing UMQTT Package**
+1. Configure code file _publishThingspeak.py_ with ThingSpeak parameters
+1. Copy the file _publishThingspeak.py_ to your device, using [ampy](https://github.com/adafruit/ampy), [rshell](https://github.com/dhylands/rshell), [webrepl](http://micropython.org/webrepl/)
+```
+$ ampy -pCOMx -d1 put publishThingspeak.py main.py
+```
+1. Reset the board
 1. Observe that data is being Published to the Thingspeak channel at Thingspeak.com
-1. Use Ampy to put Subscribe code to main.py on 2nd ESP8266
-1. Reset the 2nd ESP8266
-1. Connect to 2nd ESP8266 with Putty
-1. Observe in Putty window that Subscribed data is being received by ESP8266
+
+## Subscribing to ThingSpeak channels
+
+#### Usage
+1. Install the UMQTT Package (if needed)
+See section below **Installing UMQTT Package**
+1. Configure code file _subscribeThingspeak.py_ with ThingSpeak parameters
+1. Copy the file _subscribeThingspeak.py_ to your device, using [ampy](https://github.com/adafruit/ampy), [rshell](https://github.com/dhylands/rshell), [webrepl](http://micropython.org/webrepl/)
+```
+$ ampy -pCOMx -d1 put subscribeThingspeak.py main.py
+```
+4. Configure a 2nd device to publish the freeHeap data (see above)
+1. Reset the board
+1. Connect to the REPL with Putty (or simlar) to observe subscribed channel data being received (every 30s in the example code)
 
 ## Installing UMQTT Package
 The example code requires the MicroPython MQTT (UMQTT) Package.  Some firmware releases have this package built-in, others don't.
@@ -55,7 +74,9 @@ The example code requires the MicroPython MQTT (UMQTT) Package.  Some firmware r
 | ------------- |:-------------:| :-----:|
 | MicroPython 1.9.3 for ESP8266 | Yes | n/a |
 | MicroPython 1.9.4 for ESP8266 | Yes | n/a | 
+| MicroPython 1.10 for ESP8266  | Yes | n/a | 
 | MicroPython 1.9.4 for ESP32   | **No** | [Micropython lib](https://github.com/micropython/micropython-lib) |
+| MicroPython 1.10 for ESP32    | Yes | n/a | 
 
 ##### How to install the UMQTT package (if "No" is indicated in the table above)
 1. Navigate to the GitHub library indicated in the table 
